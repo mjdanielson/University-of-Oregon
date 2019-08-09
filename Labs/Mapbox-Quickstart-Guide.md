@@ -59,8 +59,34 @@ var map = new mapboxgl.Map({
 That’s it! You have a working Mapbox map now.
 
 <p align = "center">
-<img src= "https://media.giphy.com/media/ely3apij36BJhoZ234/giphy.gif">
+<img src = "https://media.giphy.com/media/xT0xezQGU5xCDJuCPe/giphy.gif">
 </p>
 
 ### Markers, circles and polygons 
 
+Besides a basemap, you can easily add other things to your map, including markers, polylines, polygons, circles, and popups.
+
+Let’s add a marker:
+
+var marker = new mapboxgl.Marker()
+  .setLngLat([-122.67539978027342, 45.52414929707939])
+  .addTo(map);
+   
+Now let's [define a circle](https://www.npmjs.com/package/mapbox-gl-circle) using center coordinates and radius (in meters). For bonus points, we will enable interactive editing via draggable center/radius handles. 
+
+In order to add a circle to your map you will need to include mapbox-gl-circle.min.js in the <head> of your HTML file to add the MapboxCircle object to global scope:
+
+```
+<script src='https://npmcdn.com/mapbox-gl-circle/dist/mapbox-gl-circle.min.js'></script>
+```
+
+Next, let's create our circle by defining the central coordinates, the radius size and the fill color. 
+
+```
+var myCircle = new MapboxCircle({lat: 45.5, lng: -122.7}, 1000, {
+        editable: true,
+        minRadius: 1500,
+        fillColor: '#29AB87'
+    }).addTo(map);
+    
+```
