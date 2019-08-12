@@ -107,3 +107,31 @@ var myCircle = new MapboxCircle({lat: 45.5, lng: -122.7}, 1000, {
 
 ### Working with popups
 
+Popups are usually used when you want to attach some information to a particular object on a map. In Mapbox, you can add a popup to your features with only a few lines of code! 
+
+First, you will need to initialize your pop-up variable. Make sure this variable is above your marker variable: 
+
+```
+var popup = new mapboxgl.Popup({ offset: 25 })
+.setText('Hello World. Welcome to Portland!');
+```
+
+Next add the .setPopup function to your marker variable:
+
+```
+var marker = new mapboxgl.Marker()
+		.setLngLat([-122.67539978027342, 45.52414929707939])
+    .setPopup(popup)
+    .addTo(map);
+```
+
+You can also use popups as layers (when you need something more than attaching a popup to an object):
+
+
+```
+var popup = new mapboxgl.Popup({closeOnClick: false})
+.setLngLat([-122.64, 45.5])
+.setHTML('<h1>Hi Portland!</h1>')
+.addTo(map);
+```
+
