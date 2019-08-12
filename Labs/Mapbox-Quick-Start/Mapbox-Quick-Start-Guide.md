@@ -45,7 +45,11 @@ The first thing you'll need to do is add your access token. Without this, the re
 mapboxgl.accessToken = 'pk.eyJ1IjoibWpkYW5pZWxzb24iLCJhIjoiY2p2bzFlbnZ5MW5pbTN5cGJ2YWp2MW9vaiJ9.kAaZq3iyJwvrMLK7XDs_qw';
 ```
 
-Next, we’ll initialize the map and set its view to our chosen geographical coordinates and a zoom level:
+Next, we’ll initialize the map and set its view to our chosen geographical coordinates and a zoom level.
+
+<p align="center">
+    <img src= "https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Mapbox-Quick-Start/Images/01_Portland.png">
+  </p>
 
 ```
 var map = new mapboxgl.Map({
@@ -68,11 +72,21 @@ Besides a basemap, you can easily add other things to your map, including marker
 
 Let’s add a marker:
 
+```
 var marker = new mapboxgl.Marker()
   .setLngLat([-122.67539978027342, 45.52414929707939])
   .addTo(map);
-   
+```
+
+<p align = "center">
+    <img src="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Mapbox-Quick-Start/Images/Portland_Marker.png">
+ </p>
+
 Now let's [define a circle](https://www.npmjs.com/package/mapbox-gl-circle) using center coordinates and radius (in meters). For bonus points, we will enable interactive editing via draggable center/radius handles. 
+
+<p align="center">
+    <img src="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Mapbox-Quick-Start/Images/Circle.gif">
+ </p>
 
 In order to add a circle to your map you will need to include mapbox-gl-circle.min.js in the <head> of your HTML file to add the MapboxCircle object to global scope:
 
@@ -90,3 +104,4 @@ var myCircle = new MapboxCircle({lat: 45.5, lng: -122.7}, 1000, {
     }).addTo(map);
     
 ```
+
