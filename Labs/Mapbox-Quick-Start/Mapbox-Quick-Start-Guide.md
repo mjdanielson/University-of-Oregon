@@ -1,6 +1,6 @@
 ## Mapbox Quick Start Guide
 
-This step-by-step guide will quickly get you started on Mapbox basics, including setting up a Leaflet map, working with markers, polylines and popups, and dealing with events.
+This step-by-step guide will quickly get you started on Mapbox basics, including setting up a Leaflet map, working with markers, circles and popups, and dealing with events.
 
 ### Preparing your page
 
@@ -104,4 +104,6 @@ var myCircle = new MapboxCircle({lat: 45.5, lng: -122.7}, 1000, {
     }).addTo(map);
     
 ```
+
+### Working with popups
 
