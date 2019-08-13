@@ -70,7 +70,7 @@ That’s it! You have a working Mapbox map now.
 
 Besides a basemap, you can easily add other things to your map, including markers, polylines, polygons, circles, and popups.
 
-Let’s add a marker:
+Let’s [add a marker](https://docs.mapbox.com/mapbox-gl-js/api/#marker):
 
 ```
 var marker = new mapboxgl.Marker()
@@ -111,7 +111,7 @@ var myCircle = new MapboxCircle({lat: 45.5, lng: -122.7}, 1000, {
 	<img src ="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Mapbox-Quick-Start/Images/Popup.png">
 </p>
 
-Popups are usually used when you want to attach some information to a particular object on a map. In Mapbox, you can add a popup to your features with only a few lines of code! 
+Popups are usually used when you want to attach some information to a particular object on a map. In Mapbox, you can [add a popup](https://docs.mapbox.com/mapbox-gl-js/api/#popup) to your features with only a few lines of code! 
 
 First, you will need to initialize your pop-up variable. Make sure this variable is above your marker variable: 
 
@@ -138,4 +138,14 @@ var popup2 = new mapboxgl.Popup({closeOnClick: false})
 .setHTML('<h1>Hi Portland!</h1>')
 .addTo(map);
 ```
+
+### Dealing with events 
+
+Every time something happens in Mapbox, e.g. user clicks on a marker or map zoom changes, the corresponding object sends an event which you can subscribe to with a function. It allows you to react to user interaction:
+
+function onMapClick(e) {
+    alert("You clicked the map at " + e.latlng);
+}
+
+mymap.on('click', onMapClick);
 
