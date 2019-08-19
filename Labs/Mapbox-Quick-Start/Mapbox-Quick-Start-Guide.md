@@ -1,6 +1,6 @@
 ## Mapbox Quick Start Guide
 
-This step-by-step guide will quickly get you started on Mapbox basics, including setting up a Leaflet map, working with markers, circles and popups, and dealing with events.
+This step-by-step guide will quickly get you started on Mapbox basics, including setting up a Leaflet map and working with markers, circles and popups!
 
 ### Preparing your page
 
@@ -138,14 +138,4 @@ var popup2 = new mapboxgl.Popup({closeOnClick: false})
 .setHTML('<h1>Hi Portland!</h1>')
 .addTo(map);
 ```
-
-### Dealing with events 
-
-Every time something happens in Mapbox, e.g. user clicks on a marker or map zoom changes, the corresponding object sends an event which you can subscribe to with a function. It allows you to react to user interaction:
-
-function onMapClick(e) {
-    alert("You clicked the map at " + e.latlng);
-}
-
-mymap.on('click', onMapClick);
 
