@@ -139,3 +139,45 @@ var popup2 = new mapboxgl.Popup({closeOnClick: false})
 .addTo(map);
 ```
 
+### Dealing with events
+
+Map (and some other classes) emit events in response to user interactions or changes in state. Evented is the interface used to bind and unbind listeners for these events.
+
+<p align = "center">
+<img src="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Mapbox-Quick-Start/Images/event.gif">
+	</p>
+
+First, let's add some CSS to the body of our map to create an event text box. Add the following code just after the opening <body> tag: 
+
+```
+<style type='text/css'>
+#info {
+display: block;
+position: relative;
+margin: 0px auto;
+width: 70%;
+padding: 10px;
+border: none;
+border-radius: 3px;
+font-size: 12px;
+text-align: center;
+color: #222;
+background: #fff;
+}
+</style>
+```
+
+Next, add ```<pre id='info'></pre> ``` just after your map divider. 
+
+Next, let's add our funciton. The first argument of the listener function is an event object — it contains useful information about the event that happened. For example, mapmouse event object (e in the example below) has latlng property which is a location at which the movement occurred.
+
+```
+map.on('mousemove', function (e) {
+document.getElementById('info').innerHTML =
+// e.point is the x, y coordinates of the mousemove event relative
+// to the top-left corner of the map
+JSON.stringify(e.point) + '<br />' +
+// e.lngLat is the longitude, latitude geographical position of the event
+JSON.stringify(e.lngLat.wrap());
+});
+```
