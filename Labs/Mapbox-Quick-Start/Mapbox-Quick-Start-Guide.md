@@ -169,7 +169,7 @@ background: #fff;
 
 Next, add ```<pre id='info'></pre> ``` just after your map divider. 
 
-Next, let's add our funciton. The first argument of the listener function is an event object — it contains useful information about the event that happened. For example, mapmouse event object (e in the example below) has latlng property which is a location at which the movement occurred.
+Next, let's add our function. The first argument of the listener function is an event object — it contains useful information about the event that happened. For example, mapmouse event object (e in the example below) has latlng property which is a location at which the movement occurred.
 
 ```
 map.on('mousemove', function (e) {
