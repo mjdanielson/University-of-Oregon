@@ -105,7 +105,7 @@ var marker = new mapboxgl.Marker({color:'#42f569'})
 ### Working with popups
 
 <p align = "center">
-	<img src ="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Mapbox-Quick-Start/Images/Popup.png">
+	<img src ="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Mapbox-Quick-Start/Images/Portland_Markers.png">
 </p>
 
 Popups are usually used when you want to attach some information to a particular object on a map. In Mapbox, you can [add a popup](https://docs.mapbox.com/mapbox-gl-js/api/#popup) to your features with only a few lines of code! 
