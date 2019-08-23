@@ -58,7 +58,7 @@ Next, we’ll initialize the map and set its view to our chosen geographical coo
 
 For this section of code, we will need a [style ID](https://docs.mapbox.com/help/glossary/style-id/).  A style ID is a unique identifier for each style associated with any Mapbox username. To use the Mapbox Styles API, you will need to know the style ID for the map style you are working with.
 
-You will also need the coordinates for Portland, Oregon. You can use find the coordinates for Portland using http://geojson.io/#map=2/20.0/0.0 or by replace the longitude field witih: -122.6788 and the latitude field with: 45.5212.
+You will also need the coordinates for Portland, Oregon. You can use find the coordinates for Portland using http://geojson.io or by replacing the longitude field witih: -122.6788 and the latitude field with: 45.5212.
 
 ```
 var map = new mapboxgl.Map({
@@ -77,15 +77,15 @@ When you have finished experimenting, make sure your code is set to Portland and
 <img src = "https://media.giphy.com/media/xT0xezQGU5xCDJuCPe/giphy.gif">
 </p>
 
-### Markers, circles and polygons 
+### Adding a marker
 
 Besides a basemap, you can easily add other things to your map, including markers, polylines, polygons, circles, and popups.
 
-Let’s [add a marker](https://docs.mapbox.com/mapbox-gl-js/api/#marker):
+Let’s [add a marker](https://docs.mapbox.com/mapbox-gl-js/api/#marker) to the same longitude/latitude that we centered our map on:
 
 ```
 var marker = new mapboxgl.Marker()
-  .setLngLat([-122.67539978027342, 45.52414929707939])
+  .setLngLat([replace with longitude, replace with latitude]) // starting position [lng, lat] eg. [-122.6788, 45.5212]
   .addTo(map);
 ```
 
@@ -93,27 +93,13 @@ var marker = new mapboxgl.Marker()
     <img src="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Mapbox-Quick-Start/Images/Portland_Marker.png">
  </p>
 
-Now let's [define a circle](https://www.npmjs.com/package/mapbox-gl-circle) using center coordinates and radius (in meters). For bonus points, we will enable interactive editing via draggable center/radius handles. 
 
-<p align="center">
-    <img src="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Mapbox-Quick-Start/Images/Circle.gif">
- </p>
-
-In order to add a circle to your map you will need to include mapbox-gl-circle.min.js in the <head> of your HTML file to add the MapboxCircle object to global scope:
+Let's change the color of our marker! The default color for the marker is '#3FB1CE' (this is the hex code for the blue marker). Add a color parameter of your code and set the hex color code to a color of your choice! In this example, color is set to '#42f469'. 
 
 ```
-<script src='https://npmcdn.com/mapbox-gl-circle/dist/mapbox-gl-circle.min.js'></script>
-```
-
-Next, let's create our circle by defining the central coordinates, the radius size and the fill color. 
-
-```
-var myCircle = new MapboxCircle({lat: 45.5, lng: -122.7}, 1000, {
-        editable: true,
-        minRadius: 1500,
-        fillColor: '#29AB87'
-    }).addTo(map);
-    
+var marker = new mapboxgl.Marker({color:'#42f569'})
+  .setLngLat([-122.6788, 45.5212]) // starting position [lng, lat] eg. 
+  .addTo(map);
 ```
 
 ### Working with popups
@@ -135,8 +121,8 @@ Next add the .setPopup function to your marker variable:
 
 ```
 var marker = new mapboxgl.Marker()
-		.setLngLat([-122.67539978027342, 45.52414929707939])
-    .setPopup(popup)
+    .setLngLat([-122.6788, 45.5212])
+    .setPopup(popup) //add the popup to the marker 
     .addTo(map);
 ```
 
@@ -144,51 +130,11 @@ You can also use popups as layers (when you need something more than attaching a
 
 
 ```
-var popup2 = new mapboxgl.Popup({closeOnClick: false})
+var popup_layer = new mapboxgl.Popup({closeOnClick: false})
 .setLngLat([-122.64, 45.5])
 .setHTML('<h1>Hi Portland!</h1>')
 .addTo(map);
 ```
 
-### Dealing with events
 
-Map (and some other classes) emit events in response to user interactions or changes in state. Evented is the interface used to bind and unbind listeners for these events.
 
-<p align = "center">
-<img src="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Mapbox-Quick-Start/Images/event.gif">
-	</p>
-
-First, let's add some CSS to the body of our map to create an event text box. Add the following code just after the opening <body> tag: 
-
-```
-<style type='text/css'>
-#info {
-display: block;
-position: relative;
-margin: 0px auto;
-width: 70%;
-padding: 10px;
-border: none;
-border-radius: 3px;
-font-size: 12px;
-text-align: center;
-color: #222;
-background: #fff;
-}
-</style>
-```
-
-Next, add ```<pre id='info'></pre> ``` just after your map divider. 
-
-Next, let's add our function. The first argument of the listener function is an event object — it contains useful information about the event that happened. For example, mapmouse event object (e in the example below) has latlng property which is a location at which the movement occurred.
-
-```
-map.on('mousemove', function (e) {
-document.getElementById('info').innerHTML =
-// e.point is the x, y coordinates of the mousemove event relative
-// to the top-left corner of the map
-JSON.stringify(e.point) + '<br />' +
-// e.lngLat is the longitude, latitude geographical position of the event
-JSON.stringify(e.lngLat.wrap());
-});
-```
