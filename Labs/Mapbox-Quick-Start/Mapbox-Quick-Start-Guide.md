@@ -71,7 +71,7 @@ var map = new mapboxgl.Map({
 
 That’s it! You have a working Mapbox map now. Try playing with the zoom level to see how this impacts the map. Bonus, try setting the coordinates to Burlington, Vermont. 
 
-When you have finished experimenting, make sure your code is set to Portland and your zoom level is 11 before moving on.
+When you have finished experimenting, make sure your code is set to Portland and your zoom level is set to 11 before moving on.
 
 <p align = "center">
 <img src = "https://media.giphy.com/media/xT0xezQGU5xCDJuCPe/giphy.gif">
@@ -79,7 +79,7 @@ When you have finished experimenting, make sure your code is set to Portland and
 
 ### Adding a marker
 
-Besides a basemap, you can easily add other things to your map, including markers, polylines, polygons, circles, and popups.
+Besides a basemap, you can easily add other things to your map, including markers and popups.
 
 Let’s [add a marker](https://docs.mapbox.com/mapbox-gl-js/api/#marker) to the same longitude/latitude that we centered our map on:
 
@@ -94,7 +94,7 @@ var marker = new mapboxgl.Marker()
  </p>
 
 
-Let's change the color of our marker! The default color for the marker is '#3FB1CE' (this is the hex code for the blue marker). Add a color parameter of your code and set the hex color code to a color of your choice! In this example, color is set to '#42f469'. 
+Let's change the color of our marker! The default color for the marker is '#3FB1CE' (this is the hex code for the blue marker). Add a color parameter to your code and set the hex color code! In this example, the color is set to '#42f469'. 
 
 ```
 var marker = new mapboxgl.Marker({color:'#42f569'})
@@ -130,10 +130,10 @@ You can also use popups as layers (when you need something more than attaching a
 
 
 ```
-var popup_layer = new mapboxgl.Popup({closeOnClick: false})
-.setLngLat([-122.64, 45.5])
-.setHTML('<h1>Hi Portland!</h1>')
-.addTo(map);
+var popup_layer = new mapboxgl.Popup({closeOnClick: false}) 
+.setLngLat([-122.64, 45.5]) //popup coordinates
+.setHTML('<h1>Hi Portland!</h1>') //popup text
+.addTo(map); //add this popup to the map!
 ```
 
 Try changing the close on click to 'true' and running your code. What happens when you click anywhere in the map? 
@@ -150,5 +150,9 @@ Take a look at the [popup](https://docs.mapbox.com/mapbox-gl-js/api/#popup) docu
         .addTo(map);
 ```
 
+### Congratulations! You've completed the exercise! 
 
+<p align = "center">
+	<img src="https://media.giphy.com/media/11uArCoB4fkRcQ/giphy.gif">
+	</p>
 
