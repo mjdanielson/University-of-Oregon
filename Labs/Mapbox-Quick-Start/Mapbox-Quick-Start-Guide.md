@@ -136,5 +136,19 @@ var popup_layer = new mapboxgl.Popup({closeOnClick: false})
 .addTo(map);
 ```
 
+Try changing the close on click to 'true' and running your code. What happens when you click anywhere in the map? 
+
+Take a look at the [popup](https://docs.mapbox.com/mapbox-gl-js/api/#popup) documentation to learn more about the parameters associated with Mapbox popups. Try adjusting one or more parameters - for instace, try changing the anchor position. 
+
+
+```
+      var popup_layer = new mapboxgl.Popup({
+          closeOnClick: true, anchor: 'top-right'
+        })
+        .setLngLat([-122.64, 45.5])
+        .setHTML('<h1>Hi Portland!</h1>')
+        .addTo(map);
+```
+
 
 
