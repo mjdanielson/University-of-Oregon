@@ -43,24 +43,35 @@ The first thing you'll need to do is add your access token. Without this, the re
 
 ```
 mapboxgl.accessToken = 'pk.eyJ1IjoibWpkYW5pZWxzb24iLCJhIjoiY2p2bzFlbnZ5MW5pbTN5cGJ2YWp2MW9vaiJ9.kAaZq3iyJwvrMLK7XDs_qw';
+
 ```
+
+_To use any of Mapbox's tools, APIs, or SDKs, you'll need a Mapbox [access token](https://docs.mapbox.com/help/glossary/access-token/). Mapbox uses access tokens to associate API requests with your account. You can find your access tokens, create new ones, or delete existing ones on your [Access Tokens page](https://account.mapbox.com/access-tokens/) or programmatically using the [Mapbox Tokens API](https://docs.mapbox.com/api/accounts/#tokens)._
+
 
 Next, we’ll initialize the map and set its view to our chosen geographical coordinates and a zoom level.
 
 <p align="center">
     <img src= "https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Mapbox-Quick-Start/Images/01_Portland.png">
   </p>
+ 
+
+For this section of code, we will need a [style ID](https://docs.mapbox.com/help/glossary/style-id/).  A style ID is a unique identifier for each style associated with any Mapbox username. To use the Mapbox Styles API, you will need to know the style ID for the map style you are working with.
+
+You will also need the coordinates for Portland, Oregon. You can use find the coordinates for Portland using http://geojson.io/#map=2/20.0/0.0 or by replace the longitude field witih: -122.6788 and the latitude field with: 45.5212.
 
 ```
 var map = new mapboxgl.Map({
     container: 'map', // container id
     style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
-    center: [-122.67539978027342, 45.52414929707939], // starting position [lng, lat] 
+    center: [replace with longitude, replace with latitude] // starting position [lng, lat] eg. [-122.6788, 45.5212]
     zoom: 11 // starting zoom 
 });
 ```
 
-That’s it! You have a working Mapbox map now.
+That’s it! You have a working Mapbox map now. Try playing with the zoom level to see how this impacts the map. Bonus, try setting the coordinates to Burlington, Vermont. 
+
+When you have finished experimenting, make sure your code is set to Portland and your zoom level is 11 before moving on.
 
 <p align = "center">
 <img src = "https://media.giphy.com/media/xT0xezQGU5xCDJuCPe/giphy.gif">
