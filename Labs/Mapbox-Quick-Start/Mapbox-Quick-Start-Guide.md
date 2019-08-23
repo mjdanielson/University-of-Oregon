@@ -64,7 +64,7 @@ You will also need the coordinates for Portland, Oregon. You can use find the co
 var map = new mapboxgl.Map({
     container: 'map', // container id
     style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
-    center: [replace with longitude, replace with latitude] // starting position [lng, lat] eg. [-122.6788, 45.5212]
+    center: [lng, lat] // starting position [lng, lat] eg. [-122.6788, 45.5212]
     zoom: 11 // starting zoom 
 });
 ```
@@ -85,7 +85,7 @@ Let’s [add a marker](https://docs.mapbox.com/mapbox-gl-js/api/#marker) to the 
 
 ```
 var marker = new mapboxgl.Marker()
-  .setLngLat([replace with longitude, replace with latitude]) // starting position [lng, lat] eg. [-122.6788, 45.5212]
+  .setLngLat([replace with longitude, replace with latitude]) // starting position [lng, lat] 
   .addTo(map);
 ```
 
@@ -98,7 +98,7 @@ Let's change the color of our marker! The default color for the marker is '#3FB1
 
 ```
 var marker = new mapboxgl.Marker({color:'#42f569'})
-  .setLngLat([-122.6788, 45.5212]) // starting position [lng, lat] eg. 
+  .setLngLat([-122.6788, 45.5212]) // starting position [lng, lat] 
   .addTo(map);
 ```
 
