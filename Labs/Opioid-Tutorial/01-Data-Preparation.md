@@ -67,8 +67,10 @@ After creating the new field, you can delete the old ‘string’ field and any 
 
 Joining data is typically used to append the fields of one table to those of another through an attribute or field common to both tables. This common field is often referred to as the “Primary Key’. The state abbreviation field in the US State data gathered from the TIGER/Line database and the drug overdose data from the CDC can be used as the ‘primary key’ to join these two tables. 
 
+<p align="center">
 <img src="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Opioid-Tutorial/Images/Screen%20Shot%202019-10-01%20at%2012.23.42%20PM.png">
-
+</p>
+  
 After you’ve joined your data, change the name of the new layer name to ‘Overdose  Rate’. 
 Next, join your prescription drug rates table to your county shapefile. After you join your tables, make sure to change any ‘null values’ in your prescription drug rate field to a number that is out the data range (i.e. 1,000). Changing the values from ‘null’ to a number will enable you to style the null values on your map.  
 
@@ -129,19 +131,19 @@ Zip the folder that contains your overdose rate data shapefile.
 
 **Exporting data as a GeoJSON** 
 
-Right click on your ‘Prescription Drug Rate’ layer and toggle to Export 🡪 Save Features As…
+Right click on your ‘Prescription Drug Rate’ layer and toggle to Export -> Save Features As…
 Set the file format to “GeoJSON” and make sure that the CRS is set to **EPSG: 4326 – WGS 84**. 
+
 Click ‘OK’. 
+
 Next, we need to edit the GeoJSON file. 
 
 
 A common error that occurs when uploading GeoJSON data to Mapbox is that the GeoJSON contains an old-style CRS attribute. To prevent this error, open your GeoJSON in a text editor (for this example, we will be using Atom). Delete the CRS attribute from your code and save your edits. 
 
-![A screenshot of a social media post  Description automatically generated](https://lh5.googleusercontent.com/TDXkDiVanE2_m4xhpk303_ELLf9oy8-6tIgobebSj7gXDzsvEkQETbYnz45PiBAbrfEpI_AuA8fTZGaLS7196JRLetT4mNhI9PlWduIQ1PVqR1oF437X8wZaBcEkomxESF9Ochci)
-
-![](https://docs.google.com/a/mapbox.com/drawings/d/s1Lp7DV4OBEs0ZaO9iOVL-A/image?w=534&h=18&rev=1&ac=1&parent=1OmNvY7TlLi21PkNRGyZ4hCApwcvzI3ZuVTY6EjQ4FbY)
-
-
+<p align="center">
+  <img src="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Opioid-Tutorial/Images/delete_crs.gif">
+  </p>
 
 For more information about common data uploading errors check out this helpful [documentation](https://docs.mapbox.com/help/troubleshooting/uploads/). 
 
