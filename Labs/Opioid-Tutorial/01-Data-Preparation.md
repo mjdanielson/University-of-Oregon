@@ -1,4 +1,7 @@
-## Mapping opioid-related prescriptions and overdose rates in the U.S.
+<img src="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Opioid-Tutorial/Images/logo.png">
+
+<h1 align="center"> Mapping opioid-related prescriptions <br> and overdose rates in the U.S.</h1>
+
 
 ### Part I: Downloading and Preparing Data 
 
@@ -28,7 +31,7 @@ In this exercise we will be downloading a number of different data set in order 
 
 We will be preparing our data using QGIS and a text editor.
 
-## Add Mapbox maps as layers in ArcGIS and QGIS with WMTS
+### Add Mapbox maps as layers in ArcGIS and QGIS with WMTS
 
 Open QGIS on your desktop and add a Mapbox base layer. 
 Mapbox provides many URLs and code snippets to help you add your custom Mapbox maps to other mapping tools. The following tutorial will show you how you can add any Mapbox map as a layer in ArcMap or QGIS as WMTS: 
@@ -36,27 +39,23 @@ Mapbox provides many URLs and code snippets to help you add your custom Mapbox m
 https://docs.mapbox.com/help/tutorials/mapbox-arcgis-qgis/
 
 
-###Prepare datasets for upload
-
-![A screenshot of a cell phone  Description automatically generated](https://lh3.googleusercontent.com/R2fjC-xObjWY3FSGEI44unXJe59LWgiAlhQYi1be3v9rRhdwajZZpjqrC41elG8fHkIej8FlVqSP0mg2F5RliRdogPkF0KQm6eSnvadxgvx94-xtrc-W4cEFqFfXE4GQwOTpAFqP)
-
+### Prepare datasets for upload
 
 Add both your US county and state TIGER/Line shapefiles to your map using the ‘add vector layer’ button in QGIS.
-Next, using the ‘add vector layer’ button, add the data tables for prescription rates by county and overdose s by state. 
+Next, using the ‘add vector layer’ button, add the data tables for prescription rates by county and overdose rates by state. 
 
-![A screenshot of a cell phone  Description automatically generated](https://lh3.googleusercontent.com/vrEEif3USTeg6JhldVr6qo8PcqNhSb5Cm0k0FXMFNcacEfZfg1MoiX1IuDgLlRmtcj5aboKBp7n1zNwm-1Zkcy_YknRTfFuVD5ONpGOSOyjwkBGHppUm1rn6ZQt7oppsTeY99jU5)
-
+<p align="center">
+  <img src="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Opioid-Tutorial/Images/QGIS_add_layer.png">
+  </p>
 
 Check to make sure that your fields for ‘overdose  rates’ and ‘prescription drug rates’ are numerical. These fields must be numerical in order to style them across a data range (you cannot style categorical data across a data range!). 
 
-![A screenshot of a cell phone  Description automatically generated](https://lh4.googleusercontent.com/joqd-PpLm6jUp5zUcdtJTXdXuwOEblsHtT64qctJ0uMtgRzyx8Xv8dY6HxhLDodyzbJJbvDGMfUeJfrutRUSBUJS38IbxbTl1ER1bmQZqMyOQ3z8E_fVNgOqd4qQpFlg9_33S9by)
-
-![](https://docs.google.com/a/mapbox.com/drawings/d/sU1oqn_JoRKHPeEktLLnqtg/image?w=176&h=43&rev=1&ac=1&parent=1OmNvY7TlLi21PkNRGyZ4hCApwcvzI3ZuVTY6EjQ4FbY)
-
-![](https://docs.google.com/a/mapbox.com/drawings/d/sdbunb9kb3sDdX9rf5YBjpw/image?w=203&h=61&rev=1&ac=1&parent=1OmNvY7TlLi21PkNRGyZ4hCApwcvzI3ZuVTY6EjQ4FbY)
+<p align="center">
+  <img src='https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Opioid-Tutorial/Images/Screen%20Shot%202019-10-01%20at%2012.46.38%20PM.png'>
+  </p>
 
 
-IF the field that you want to display is showing up as a ‘string’ in your data table, then create a new numerical field and set it equal to the ‘string’ field. In the following example, we use the ‘field calculator’ in QGIS to create a new field called ‘Rate’. The new field type is ‘Decimal number (real)’ with a precision of 1. In the ‘Expression’ console, we have set the new field equal to the old rate field (which is a string). 
+**IF** the field that you want to display is showing up as a ‘string’ in your data table, then create a new numerical field and set it equal to the ‘string’ field. In the following example, we use the ‘field calculator’ in QGIS to create a new field called ‘Rate’. The new field type is ‘Decimal number (real)’ with a precision of 1. In the ‘Expression’ console, we have set the new field equal to the old rate field (which is a string). 
 
 ![A screenshot of a social media post  Description automatically generated](https://lh6.googleusercontent.com/rnPniYlgi3XMVRVmqv4Uxbre4kXr3vhvBkTozahDCkDJJDDO7ApElGW2bX5wyZ54cxDIYx8s5qFM6W7KZkKx2wpjMMJnL-Fj6_CUC-8n6E1sC2SMW1AS_nlYLVYLm6Dymhef_3YW)
 
