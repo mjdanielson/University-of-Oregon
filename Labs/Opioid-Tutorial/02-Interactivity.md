@@ -410,7 +410,7 @@ Next, add the following code below your zoomThreshold variable but before your c
 ***Voila! Now you have a live website with a Mapbox map!*** 
 
 <p align="center">
-    <img src="https://tenor.com/view/animated-rainbow-funny-computer-gif-3439242">
+    <img src="https://media.giphy.com/media/Bj2UZgqqzUxwc/giphy.gif">
     </p>
 
 **Polishing steps:**
