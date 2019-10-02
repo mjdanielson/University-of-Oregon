@@ -4,7 +4,9 @@
 <h2 align="center"> Mapping opioid-related prescriptions <br> and overdose rates in the U.S.<h2>
 
 
-### Part II: Creating custom styles and simple web maps
+### Part I: Creating custom styles and simple web maps
+
+One way to show data distribution on a map is with a choropleth, a thematic map in which areas are shaded based on a particular value. In this guide, you will use Mapbox Studio and Mapbox GL JS to make a map of US states showing overdose rates by state and prescription drug rates by county. 
 
 In this tutorial you will:
 
@@ -16,7 +18,15 @@ In this tutorial you will:
 
 ----------
 
-### **Uploading data to Studio** 
+### Data
+
+- [2017 drug overdose rate by state](https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Opioid-Tutorial/Data/overdose-data.geojson) - [Source: CDC}(https://www.cdc.gov/drugoverdose/data/statedeaths/drug-overdose-death-2017.html) 
+
+- [2017 opioid prescription rate by county](https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Opioid-Tutorial/Data/prescription.mbtiles) - [Source: CDC](https://www.cdc.gov/drugoverdose/maps/rxcounty2017.html) 
+
+----------
+
+### Uploading data to Studio
 
 To add the overdose data to a style in Mapbox Studio, you need to upload it to your account. Go to your [**Tilesets**](https://www.mapbox.com/studio/tilesets) [page](https://www.mapbox.com/studio/tilesets) in Mapbox Studio to upload your data.
 
