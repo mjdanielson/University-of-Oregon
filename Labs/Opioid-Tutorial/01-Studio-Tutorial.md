@@ -20,7 +20,7 @@ In this tutorial you will:
 
 ### Data
 
-- [2017 drug overdose rate by state](https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Opioid-Tutorial/Data/overdose-data.geojson) - [Source: CDC}(https://www.cdc.gov/drugoverdose/data/statedeaths/drug-overdose-death-2017.html) 
+- [2017 drug overdose rate by state](https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Opioid-Tutorial/Data/overdose-data.geojson) - [Source: CDC](https://www.cdc.gov/drugoverdose/data/statedeaths/drug-overdose-death-2017.html) 
 
 - [2017 opioid prescription rate by county](https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Opioid-Tutorial/Data/prescription.mbtiles) - [Source: CDC](https://www.cdc.gov/drugoverdose/maps/rxcounty2017.html) 
 
