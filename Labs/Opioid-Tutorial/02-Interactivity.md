@@ -129,16 +129,17 @@ Now that we’ve initialized the webmap, let’s try to make some changes to our
 
 ----------
 
-**Adding your custom style** 
+### Adding your custom style
+
 **Style**: The map loads a style via the URL mapbox://styles/mapbox/streets-v11. This is a URL to a remote file that the map will download to determine the [tilesets](https://docs.mapbox.com/help/glossary/tileset/) it includes and how they are styled for the end-user. Mapbox GL JS permits URLs instead of literal data in several places, including data sources. To load the style that you created in the previous assignment, you need to go to go your Mapbox Studio account and find your Style URL ([how to find your Style URL](https://docs.mapbox.com/help/glossary/style-url/)):
 
 
 <p align="center">
     <img src="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Opioid-Tutorial/Images/mapstyle.png">
     </p>
-
-Or
-
+<br></br>
+<h3 align ="center"> OR </h3>
+<br></br>
 <p align="center">
     <img src="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Opioid-Tutorial/Images/mapstyle.gif">
     </p>
@@ -146,8 +147,9 @@ Or
 
 - Edit the row with the style URL it in your code and run your changes. *(Which row to edit? Look for a row with something that looks similar to your style URL)*
 
-
-```SCREEN SHOT OF THE MAP```
+<p align="center">
+    <img src="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Opioid-Tutorial/Images/Screen%20Shot%202019-10-02%20at%2012.59.27%20PM.png">
+    </p>
 
 ----------
 
@@ -269,6 +271,13 @@ Next, add the following code below your zoomThreshold variable but before your c
         }
       });
  ```     
+ 
+ 
+ Hit run to see your changes!
+ 
+ <p align="center">
+    <img src="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Opioid-Tutorial/Images/Finished-map.gif">
+    </p>
 
 ----------
 
@@ -286,15 +295,123 @@ Next, add the following code below your zoomThreshold variable but before your c
 ![](https://lh3.googleusercontent.com/asCZvCmvq6bxNthgMEgDhmq1uQ1IwHqdLYOkGAKpoQT2yEhf_7e8Rsu5doIZ--mvDJ3Ru6h7Qf_rO95LEn9s7spGUnx2xLI7MleSAML0ra6fR1A6jpbx26qfKL9ksWsi74q1P9uC)
 
 3. **Create a new file** called index.html
-4. In the blankindex.html file, paste in the entire code we built in JSFiddle
+4. In the blank index.html file, paste in the entire code we built in JSFiddle
+
+```
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <title>Display a map</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.4.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+      }
+
+    </style>
+  </head>
+
+  <body>
+
+    <style>
+      .legend {
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 3px;
+        bottom: 30px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.10);
+        font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+        padding: 10px;
+        position: absolute;
+        right: 10px;
+        z-index: 1;
+      }
+
+      .legend h4 {
+        margin: 0 0 10px;
+      }
+
+      .legend div span {
+        border-radius: 50%;
+        display: inline-block;
+        height: 10px;
+        margin-right: 5px;
+        width: 10px;
+      }
+
+    </style>
+    <div id='map'></div>
+    <div id='state-legend' class='legend'>
+      <h4>Overdose Rates </h4>
+      <div><span style='background-color: #e9d3d3'></span>6.9 to 11.0</div>
+      <div><span style='background-color: #f5c0ad'></span>11.1 to 13.5</div>
+      <div><span style='background-color: #f0a184'></span>13.6 to 16.0</div>
+      <div><span style='background-color: #cc6f61'></span>16.1 to 18.5</div>
+      <div><span style='background-color: #c44936'></span>18.6 to 21.0</div>
+      <div><span style='background-color: #911e0d'></span>21.1 to 57.0</div>
+    </div>
+
+    <div id='county-legend' class='legend' style='display: none;'>
+      <h4>Opioid Prescribing <br> Drug Rates</h4>
+      <div><span style='background-color: #ffe9bd'></span>&lt; 57.2</div>
+      <div><span style='background-color: #ff8a73'></span>57.2 – 82.3</div>
+      <div><span style='background-color: #e13731'></span>82.4 – 112.5</div>
+      <div><span style='background-color: #650511'></span>&gt; 112.5</div>
+      <div><span style='background-color: #ffffff'></span>Missing Data</div>
+    </div>
+
+    <script>
+      mapboxgl.accessToken = 'YOUR MAPBOX TOKEN';
+      var map = new mapboxgl.Map({
+        container: 'map', // container id
+        style: 'YOUR STYLE SHEET', // stylesheet location
+        center: [-98.349609375, 39.095962936305476], // change long/lat to -98.349609375, 39.095962936305476
+        zoom: 3 // Change the zoom to 3!
+      });
+
+      // Add zoom and rotation controls to the map.
+      map.addControl(new mapboxgl.NavigationControl());
+
+      var zoomThreshold = 5;
+      var stateLegendEl = document.getElementById('state-legend');
+      var countyLegendEl = document.getElementById('county-legend');
+      map.on('zoom', function() {
+        if (map.getZoom() > zoomThreshold) {
+          stateLegendEl.style.display = 'none';
+          countyLegendEl.style.display = 'block';
+        } else {
+          stateLegendEl.style.display = 'block';
+          countyLegendEl.style.display = 'none';
+        }
+      });
+
+    </script>
+
+  </body>
+
+</html>
+```
+
 5. [Enable Github Pages](https://pages.github.com/) (in repo Settings - the gear symbol in the upper right):
 6. Then wait a minute, then go to your Github page address (https://[YOUR GITHUB NAME].github.io/[YOUR REPO NAME]/) - you can find this by scrolling back to the Github Pages settings.
 7. (You might need to wait another minute if it doesn’t work right away)
 
 ***Voila! Now you have a live website with a Mapbox map!*** 
 
-![](https://lh6.googleusercontent.com/29e4qlv_57-w7rxVwqA2ZyvjPGH-VAsy4ybuqD0RJz9WALLBpg2987F_kpAAN3NKdH3DSCZd-iNpr0styzaLQUpR8ly-_Qh-WQlFSQFknQPn8Bqr_7C8mAhX1DuQNtSjO58LrBKc)
-
+<p align="center">
+    <img src="https://tenor.com/view/animated-rainbow-funny-computer-gif-3439242">
+    </p>
 
 **Polishing steps:**
 
