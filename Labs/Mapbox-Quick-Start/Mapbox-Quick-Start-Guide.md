@@ -2,7 +2,7 @@
 
 This step-by-step guide will quickly get you started on Mapbox basics, including setting up a Mapbox map, working with markers, circles and popups and setting up events! All of the code below can be found in this handy [JSFiddle](https://jsfiddle.net/mjdanielson/9jh3bzc8/1/).
 
-### Preparing your page
+### I. Preparing your page
 
 Before writing any code for the map, you need to do the following preparation steps on your page:
 
@@ -39,7 +39,7 @@ This means the body div of your web page 0 margin or padding, and the div with t
  <hr>
 Now you’re ready to initialize the map and do some stuff with it.
 
-### Setting up the map
+### II. Setting up the map
 
 Let’s create a map of the centered on Portland with the beautiful Mapbox Streets style. 
 
@@ -83,7 +83,7 @@ When you have finished experimenting, make sure your code is set to Portland and
 <img src = "https://media.giphy.com/media/xT0xezQGU5xCDJuCPe/giphy.gif">
 </p>
 
-### Adding a marker
+### III. Adding a marker
 
 Besides a basemap, you can easily add other things to your map, including markers and popups.
 
@@ -108,7 +108,7 @@ var marker = new mapboxgl.Marker({color:'#42f569'})
   .addTo(map);
 ```
 
-### Working with popups
+### IV. Working with popups
 
 <p align = "center">
 	<img src ="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Mapbox-Quick-Start/Images/Portland_Markers.png">
