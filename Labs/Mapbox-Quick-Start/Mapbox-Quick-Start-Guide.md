@@ -26,13 +26,17 @@ Put a div element with a certain id where you want your map to be:
 
 ```
 
-You will also want to apply some CSS to visualize what the layout looks like. This is particularly important for the map div, which won't show up on the page until you give it a height:
+You will also want to apply some CSS to specify what the layout looks like. This is particularly important for the map div, which *won't* show up on the page until you give it a height:
 
 ```
         body { margin:0; padding:0; }
         #map { position:absolute; top:0; bottom:0; width:100%; }
 ```
 
+This means the body div of your web page 0 margin or padding, and the div with the ID "map", will fill the space 0 pixles from the top, to 0 pixles from the bottom, and 100% of the width of your browser page.
+
+<a title="Matthias Apsel [CC0], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Boxmodell-detail.svg"><img width="512" alt="Boxmodell-detail" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Boxmodell-detail.svg/512px-Boxmodell-detail.svg.png"></a>
+ <hr>
 Now you’re ready to initialize the map and do some stuff with it.
 
 ### Setting up the map
@@ -58,7 +62,7 @@ Next, we’ll initialize the map and set its view to our chosen geographical coo
 
 For this section of code, we will need a [style ID](https://docs.mapbox.com/help/glossary/style-id/).  A style ID is a unique identifier for each style associated with any Mapbox username. To use the Mapbox Styles API, you will need to know the style ID for the map style you are working with.
 
-You will also need the coordinates for Portland, Oregon. You can use find the coordinates for Portland using http://geojson.io or by replacing the longitude field witih: -122.6788 and the latitude field with: 45.5212.
+You will also need the coordinates for Portland, Oregon. You can use find the coordinates for Portland placing a marker using http://geojson.io or by replacing the longitude field witih: -122.6788 and the latitude field with: 45.5212.
 
 ```
 var map = new mapboxgl.Map({
@@ -69,7 +73,9 @@ var map = new mapboxgl.Map({
 });
 ```
 
-That’s it! You have a working Mapbox map now. Try playing with the zoom level to see how this impacts the map. Bonus, try setting the coordinates to Burlington, Vermont. 
+That’s it! You have a working Mapbox map now. Try changing it:
+1. Adjust the zoom level to see how this impacts the map. 
+2. Set the center coordinates to two other cities around the world. 
 
 When you have finished experimenting, make sure your code is set to Portland and your zoom level is set to 11 before moving on.
 
@@ -110,7 +116,7 @@ var marker = new mapboxgl.Marker({color:'#42f569'})
 
 Popups are usually used when you want to attach some information to a particular object on a map. In Mapbox, you can [add a popup](https://docs.mapbox.com/mapbox-gl-js/api/#popup) to your features with only a few lines of code! 
 
-First, you will need to initialize your pop-up variable. Make sure this variable is above your marker variable: 
+First, you will need to initialize a pop-up variable. In the JavaScript section of your code, make sure you declare this variable before you declase the marker variable, which will use it: 
 
 ```
 var popup = new mapboxgl.Popup({ offset: 25 })
@@ -123,7 +129,7 @@ Next add the .setPopup function to your marker variable:
 var marker = new mapboxgl.Marker()
     .setLngLat([-122.6788, 45.5212])
     .setPopup(popup) //add the popup to the marker 
-    .addTo(map);
+    .addTo(map); // add the open marker to the map
 ```
 
 You can also use popups as layers (when you need something more than attaching a popup to an object):
