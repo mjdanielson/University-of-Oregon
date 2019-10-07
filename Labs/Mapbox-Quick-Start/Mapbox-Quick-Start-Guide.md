@@ -2,6 +2,8 @@
 
 This step-by-step guide will quickly get you started on Mapbox basics, including setting up a Mapbox map, working with markers, circles and popups and setting up events! All of the code below can be found in this handy [JSFiddle](https://jsfiddle.net/mjdanielson/9jh3bzc8/1/).
 
+Begin by copying the files for today's activity from the the "Class_Data" folder to your personal workspace on the "R" drive. Open and edit the file using a text editor, such as Brackets. 
+
 ### I. Preparing your page
 
 Before writing any code for the map, you need to do the following preparation steps on your page:
@@ -35,8 +37,9 @@ You will also want to apply some CSS to specify what the layout looks like. This
 
 This means the body div of your web page 0 margin or padding, and the div with the ID "map", will fill the space 0 pixles from the top, to 0 pixles from the bottom, and 100% of the width of your browser page.
 
-<a title="Matthias Apsel [CC0], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Boxmodell-detail.svg"><img width="512" alt="Boxmodell-detail" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Boxmodell-detail.svg/512px-Boxmodell-detail.svg.png"></a>
- <hr>
+<a title="Felix.leg [CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0/)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Css_box_model.svg"><img width="512" alt="Css box model" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Css_box_model.svg/512px-Css_box_model.svg.png"></a>
+
+<hr>
 Now you’re ready to initialize the map and do some stuff with it.
 
 ### II. Setting up the map
@@ -66,7 +69,7 @@ You will also need the coordinates for Portland, Oregon. You can use find the co
 
 ```
 var map = new mapboxgl.Map({
-    container: 'map', // container id
+    container: 'map', // id of a div on your page, where the map will be inserted
     style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
     center: [lng, lat] // starting position [lng, lat] eg. [-122.6788, 45.5212]
     zoom: 11 // starting zoom 
