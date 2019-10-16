@@ -2,11 +2,14 @@
 
 
 <h2 align="center"> Mapping renters vs owners in Portland </h2>
+<h3 align="center"> Part I: Creating a map style in Studio </h3>
 
 The US Census makes owner/renter information readily available for census block geometries, in this lab series we are going to view the owner/renter information in different ways: 
 
 1) Mapping the per-person level information, and 
-2) Viewing the relative incidenec of owners to renters using a choropeth map. For this first exercise, we will be creating a point map that displays the each individual renter and owner in Portland by block group. 
+2) Viewing the relative incidence of owners to renters using a choropeth map. 
+
+For this first exercise, we will be creating a point map that displays the each individual renter and owner in Portland by block group. 
 
 ### In this tutorial you will:
 
