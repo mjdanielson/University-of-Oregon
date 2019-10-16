@@ -97,99 +97,86 @@ You can rename a layer by clicking on the name of the layer at the top of the pa
 
 Each layer in Studio can be styled individually by clicking on the name of the layer in the Layer list. There are several layer types to choose from. Each layer type has a unique set of layer properties that can be specified. There are a few options for specifying property values. You can pick values individually, based on a data attribute, based on the zoom level, or the value of another property. For more information on layer types and their styling rules check out this [reference guide](https://docs.mapbox.com/studio-manual/reference/styles/).
 
+In the Mapbox Studio style editor, you can assign a color to each of your layers. Click the Style link in the **renters** layer. Next, click **color** and change the hex color value to #cc00c2.
 
 <p align="center">
-  <img src="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Opioid-Tutorial/Images/style_layer.png">
-  </p>
-
-
-On the original CDC map, the data is styled based on the number of age-adjusted rates of drug overdose deaths by each state in 2017:
-
-<p align="center">
-  <img src="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Opioid-Tutorial/Images/cdc.png">
-  </p>
+  <src img="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Population-Tutorial/Images/Color-picker.png">
+    </p>
   
-  
-  
-We can use a similar color ramp here. (Or, you can explore [http://colorbrewer2.org/](http://colorbrewer2.org/) to create your own color ramp.)
+ Next, clike the Style link in the **owners** layer and change the color value to #00d2e6. 
 
 ----------
 
 ### Data driven style
 
-In the Mapbox Studio style editor, you can assign a color to each state based on its population density. Click the Style link in the opioid layer. Next, click **Style across data range**.
+In the Mapbox Studio style editor, you can assign a radius size value to each layer based on its zoom level. Click the Style link in the **renters** layer. Next, click **Style across zoom range**.
 
-Under *Choose a numeric data field to interpolate over a range*, select overdose_rate since you want to style each state according to its age-adjusted overdose rate for 2017.
+The rate of change is set to **Linear**. Click **Edit** and select **Exponential** instead. Click **Done**. Since you have set the rate of change to step, the colors for each range of density between stops will be uniform.
 
+Now it's time to start adding stops and radius sizes! You will create several stops in order to make your layers visible at multiple zoom levels. Click on **Edit** in the first zoom level stop. 
 
-The rate of change is set to **Linear**. Click **Edit** and select **Step** instead. Click **Done**. Since you have set the rate of change to step, the colors for each range of density between stops will be uniform.
-
-
-<p align="center">
-  <img src="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Opioid-Tutorial/Images/Screen%20Shot%202019-10-02%20at%209.21.19%20AM.png">
-  </p>
-
-
-
-Now it's time to start adding stops and colors! You will create several stops to break states up into groups with similar overdose rates. Click on **Edit** in the first overdose rate stop. The first stop is fixed at 8.1, based on the information in the data set you uploaded. Click on it and change the color to #**e9d3d3** (or your own color ramp). Click **Done**.
-
-Change *overdose rate* of the next stop to 11, and change the color to **#f5c0ad**.  Click **Done**.
+Change zoom value of the first stop to 12, and change the radius size to **1.5**.  Click **Done**.
 
 <p align="center">
-  <img src="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Opioid-Tutorial/Images/choroplet2.gif">
+  <img src="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Population-Tutorial/Images/Style-Zoom-Range.gif">
   </p>
   
   
-
-Click **+ Add another stop**. Change *overdose rate* to 13.5, and change the color to **#f0a184**. Click **Done**.
+Click **+ Add another stop**. Assign the zoom level to 15, and change the radius size to **1.58**. Click **Done**.
 Create the following additional stops:
 
-
-- 16:  #cc6f61
-- 18.5: #c44936
-- 21: #911f0d
-
-
-(or your own color ramp from [http://colorbrewer2.org/](http://colorbrewer2.org/) or a similar tool)
-
-
-As you start adding stops, you will see the map change on the right to reflect the new stops. In this case, all states with an overdose rate between 0-8.1 will be assigned the color #e9d3d3, all states with an overdose rate from 8.1-11 will be assigned the color #f5c0ad, and so on.
-
-Give your states a fancy outline style to help your readers distinguish between neighboring states. 
-
-
-
-<p align="center">
-  <img src="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Opioid-Tutorial/Images/Screen%20Shot%202019-10-02%20at%209.29.10%20AM.png">
-  </p>
-
-
-
-Change the *1px stroke* style property to #FFF.
-
-
-### Style your prescription data layer
-
-Below is the CDC representation of prescribing rates in the US by county: 
-
-<p align="center">
-  <img src="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Opioid-Tutorial/Images/cdc2.png">
-  </p>
-
-
-Use the same binning techniques as seen on the CDC website to style your data using the prescription rate field, but feel free to change the colors! Remember to set the stroke color to #ffff and to change the rate of change to **step**. Set the opacity for this layer to 0.75
-
-If you want to recreate the color scheme from the CDC map, try using [HTML color picker.](https://imagecolorpicker.com/) or use the table below:
-
-| Step Value | Color   |
+| Zoom Level | Value   |
 |------------|---------|
-| 0          | #FFE9BD |
-| 57.2       | #FF8A73 |
-| 82.4       | #E1371  |
-| 112.5      | #650511 |
-| 1000       | #FFFFF  |
+| 16         | 2.5     |
+| 17         | 3.95    |
+| 18         | 6.25    |
+| 19         | 9.88    |
+| 20         | 15.63   |
+| 21         | 24.71   |
+| 22         | 39.06   |
 
-**Note: Remember that we set our ‘Null’ or missing data to 1000.**
+
+
+As you start adding stops, you will see the map change on the right to reflect the new stops. In this case, you will notice the size of the **renters** layer changing as you zoom in and out of the map. 
+
+
+### Style your owner data layer
+
+We want to apply the same styling rules that we just assigned to our **renters** layer to our **owners** layer. Instead of inputting all of the values that we just added to our **renters** layer, we can simply copy the JSON rules that wecreated into our **owners** layer. 
+
+Click the Style link in the **renters** layer. Next, click on **radius** and find the JSON editor symbol ```</>```. Select the JSON editor and copy the code OR copy the code written below. 
+
+```
+[
+  "interpolate",
+  ["exponential", 1],
+  ["zoom"],
+  12,
+  1.5,
+  15,
+  1.58,
+  16,
+  2.5,
+  17,
+  3.95,
+  18,
+  6.25,
+  19,
+  9.88,
+  20,
+  15.63,
+  21,
+  24.71,
+  22,
+  39.06
+]
+```
+
+Navigate to your **owners** layer and select **radius**. Paste the styling rules into the JSON editor of this layer. You should see these changes immediately. 
+
+<p align="center">
+  <img src="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Population-Tutorial/Images/Radius_Size.gif">
+  </p>
 
 
 ----------
@@ -197,45 +184,15 @@ If you want to recreate the color scheme from the CDC map, try using [HTML color
 
 ### Reorder your layers**
 
-
 <p align="center">
-  <img src="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Opioid-Tutorial/Images/Screen%20Shot%202019-10-02%20at%2011.00.12%20AM.png"
-       </p>
-  
+  <img src="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Population-Tutorial/Images/Labels.png">
+  </p>
 
-One of the coolest things about the Mapbox Studio style editor is that you can reorder any of the elements of the map. Notice in the photo above that we moved the water features to the top of the layer list. Additionally, we moved the state overdose data to appear above the prescription rate layer. 
+One of the coolest things about the Mapbox Studio style editor is that you can reorder any of the elements of the map. Notice in the photo above that we moved the settlement-labels to the top of the layer list. 
 
-To make your map match the example above, try moving your **water** data to the top of your layer list.  
+To make your map match the example above, try moving your **settlement-label** to the top of your layer list.  
 
-
-Next, move the **state** labels below the water data. 
-
-
-Lastly, move the **overdose** date below the state data but above the **prescription** data. 
-
-
-To make the boundaries between states more visible, you can move the **admin-state-province** layer above the overdose layer in the layer list. 
-
-
-
-----------
-
-
-### Style by zoom level
-
-
-We have successfully added and styled both of our data sets, but at this point we can only view the overdose rates by state. In order to see the prescription drug rates when zoomed into the state level we will need to change the visibility by zoom extent. 
-
-Select the **overdose** data layer (this should be above your prescription drug layer) and select the Opacity property. 
-Select ‘style across a zoom range’ and add a step at zoom level 5 and zoom level 6. Make sure the rate of change is set to linear.  
-
-Change the opacity at zoom level 6 to equal ‘0’ and set the opacity at zoom level 5 to ‘1’. Save your changes.
-You should now be able to view your prescription drug data when zoomed in to the state level (~ zoom level 5.5). 
-
-
-<p align='center'>
-  <img src="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Opioid-Tutorial/Images/opacity.gif">
-</p>
+Try moving other layers to the top of the layer list and observe how it changes your map style. 
 
 
 ----------
