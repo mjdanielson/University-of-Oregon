@@ -185,7 +185,7 @@ Navigate to your **owners** layer and select **radius**. Paste the styling rules
 ----------
 
 
-### Reorder your layers**
+### Reorder your layers
 
 <p align="center">
   <img src="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Population-Tutorial/Images/Labels.png">
