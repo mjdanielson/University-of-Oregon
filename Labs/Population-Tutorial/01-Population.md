@@ -1,7 +1,7 @@
 <img src="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Opioid-Tutorial/Images/logo.png">
 
 
-<h2 align="center"> Mapping renters vs homeowners in Portland </h2>
+<h2 align="center"> Mapping renters vs owners in Portland </h2>
 
 The US Census makes owner/renter information readily available for census block geometries, in this lab series we are going to view the owner/renter information in different ways: 1) by mapping the per-person level information and 2) by viewing the relative incidenec of owners to renters using a choropeth map. For this first exercise, we will be creating a point map that displays the each individual renter and owner in Portland by block group. 
 
@@ -46,13 +46,13 @@ After you've uploaded your data, it's time to create a new style so you can put 
 Excellent! Welcome to the Mapbox Studio style editor. This is where you will create your map style.
 
 <p align="center">
-  <img src="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Opioid-Tutorial/Images/basic_style.png">
+  <img src="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Population-Tutorial/Images/Dark_style.png">
   </p>
 
 Rename the style so that you can find it later. Click into the title field in the upper left side of the screen to change the title from Dark Template to ‘Renters vs Owners’.
 
 <p align="center">
-  <img src"https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Opioid-Tutorial/Images/name-change.gif">
+  <img src"https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Population-Tutorial/Images/Name_Change-Generic.gif">
   </p>
   
 
@@ -66,11 +66,12 @@ To add and style your data, you will need to add a **new layer** to the map. At 
 
 
 <p align="center">
-  <img src="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Opioid-Tutorial/Images/add-layer.png">
+  <img src="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Population-Tutorial/Images/zray.png">
   </p>
 
 
 The editor is now showing your map in “x-ray mode.” X-ray mode shows all the data in the sources added to the style, regardless of whether there is a layer to style it.
+
 
 In the *New layer* panel, look in the list of *Data sources* for the **owner** source. Click the tileset and then select the source layer as the source for this new style layer.
 
@@ -84,7 +85,7 @@ Click the **Style** tab and the map will switch back to style mode displaying yo
 
 
 <p align="center">
-  <img src="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Opioid-Tutorial/Images/Screen%20Shot%202019-10-02%20at%209.08.30%20AM.png"
+  <img src="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Population-Tutorial/Images/Style-Layers.png"
        </p>
 
 
