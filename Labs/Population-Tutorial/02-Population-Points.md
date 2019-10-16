@@ -84,9 +84,8 @@ var map = new mapboxgl.Map({
 </html>
 ```
 
-1. Copy [this sample code](https://www.mapbox.com/mapbox-gl-js/example/simple-map/) and paste it into the **HTML section** of your JSFiddle.
 
-2. Edit the code to add your Mapbox [access token](https://www.mapbox.com/help/define-access-token/)in the section that says "ACCESS TOKEN GOES HERE" (get your access token from your Mapbox [‘Account’ page](https://account.mapbox.com/)).
+Edit the code to add your Mapbox [access token](https://www.mapbox.com/help/define-access-token/)in the section that says "ACCESS TOKEN GOES HERE" (get your access token from your Mapbox [‘Account’ page](https://account.mapbox.com/)).
 
 ----------
 
