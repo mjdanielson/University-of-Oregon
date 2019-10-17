@@ -139,9 +139,75 @@ Now that we’ve initialized the webmap, let’s try to make some changes to our
 
 ----------
 
+### The load event
+
+What is a callback?
+
+Initializing the map on the page does more than create a container in the map div. It also tells the browser to request the Mapbox Studio style. This can take variable amounts of time depending on how quickly the Mapbox server can respond to that request, and everything else you're going to add in the code relies on that style being loaded onto the map. As such, it's important to make sure the style is loaded before any more code is executed.
+
+Fortunately, the map object can tell your browser about certain events that occur when the map's state changes. One of these events is load, which is emitted when the style has been loaded onto the map. Through the map.on method, you can make sure that none of the rest of your code is executed until that event occurs by placing it in a callback function that is called when the load event occurs.
+
+To make sure the rest of the code can execute, it needs to live in a callback function that is executed when the map is finished loading.
+
+```
+map.on('load', function() {
+  // the rest of the code will go in here
+});
+
+```
+
+Next, we will add our owner and renter data layer to the map using map.addLayer(). Remember that this goes inside of the load function. 
 
 
+```
+       map.addLayer({
+         id: 'Owner Data',
+         type: "fill",
+         source: {
+           type: 'vector',
+           url: 'mapbox://YOUR URL' //input your tileset url
+         },
+           'source-layer': 'YOUR SOURCE LAYER NAME, //input your source layer name
+         paint: {
+           'fill-color': '#cb1515',
+         }
 
+       });
+
+```
+
+Beofore you hit 'run', you will need to make some changes to this code. Hit **run** to see your changes! You should see your vector layer on your map. 
+
+
+<p align='center'>
+  <img src="">
+  </p>
+  
+### Data driven styling 
+
+You can assign a color to each block group based on its field and variables. For our first map, we want to create a choropleth map that displays the percentage of the Portland population that owns a home. In order to style by homeownership, you will need to change the 'fill-color' parameter of the layer you just added to your map. 
+
+Replace '#cb1515' with the following: 
+
+```
+[
+   "step",
+   ["get", "Own"],
+   "hsl(225, 100%, 97%)",
+   16.81,
+   "hsl(203, 47%, 82%)",
+   22.338,
+   "hsl(202, 57%, 63%)",
+   27.32,
+   "#3182bd",
+   31.942,
+    "hsl(210, 90%, 32%)"
+   ],
+   "fill-opacity": 0.7
+                
+ ```
+ 
+This code is very similar to the process we used in Studio. We are filtering the data from our layer by the data range found in the 'Own' field. Each of the five steps is assigned a color and the fill-opacity is set to 0.7. 
 
 
 
