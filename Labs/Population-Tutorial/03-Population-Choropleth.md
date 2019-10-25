@@ -60,7 +60,7 @@ In the last few tutorials we used Studio to dynamically style all of our layers.
 ### Initializing the map!
 
 
-To begin, we will be using a sample code created by the documentation team at Mapbox to initialize a simple web map in JSFiddle. 
+To begin, we will be using a sample code created by the documentation team at Mapbox to initialize a web map in JSFiddle. 
 
 ```HTML
 <!DOCTYPE html>
@@ -103,27 +103,40 @@ body * {
 <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.1.0/mapbox-gl-compare.js'></script>
 <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.1.0/mapbox-gl-compare.css' type='text/css' />
 
-<div id='map' class='map'></div> 
+<div id='owners' class='map'></div>  //owners map div, you will need to add a second map div for your renter data
 
 <script>
-mapboxgl.accessToken = 'YOUR ACCESS TOKEN';
-var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/dark-v10', // Mapbox dark style 
-    center: [0, 0], // change the long/lat coordinates to -122.67745971679688, 45.52751668442124],
-    zoom: 0 // change the zoom level to 10 
-});
-
+  //add your Mapbox access token and map variable here!
 </script>
 
 </body>
 </html>
 ```
 
+Notice that there are script and link tags referencing mapbox-gl-compare. This is the Mapbox GL JS [swipe map plugin](https://github.com/mapbox/mapbox-gl-compare).
+
+```HTML
+
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.1.0/mapbox-gl-compare.js'></script>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.1.0/mapbox-gl-compare.css'`` 
+
+      
+Next, add your Mapbox access token and create a variable between your script tags in order to initialize your first choropleth. This first map will display information about the percentage of homeowners in Portland. 
+
+```javascript 
+mapboxgl.accessToken = 'YOUR ACCESS TOKEN';
+  
+var ownerMap = new mapboxgl.Map({
+    container: 'owners', // owners map div 
+    style: 'mapbox://styles/mapbox/dark-v10', // Mapbox dark style 
+    center: [0, 0], // change the long/lat coordinates to -122.67745971679688, 45.52751668442124],
+    zoom: 0 // change the zoom level to 10 
+});
+```
 
 Edit the code to add your Mapbox [access token](https://www.mapbox.com/help/define-access-token/)in the section that says "ACCESS TOKEN GOES HERE" (get your access token from your Mapbox [‘Account’ page](https://account.mapbox.com/)).
 
-Notice that the Mapbox style has already been initialized for you. In this exercise we are using the Mapbox dark style.  
+The Mapbox style has already been initialized for you. In this exercise we are using the Mapbox dark style.  
 
 ----------
 
@@ -151,6 +164,7 @@ Fortunately, the map object can tell your browser about certain events that occu
 To make sure the rest of the code can execute, it needs to live in a callback function that is executed when the map is finished loading.
 
 ```JavaScript 
+
 map.on('load', function() {
   // the rest of the code will go in here
 });
@@ -161,7 +175,8 @@ Next, we will add our owner and renter data layer to the map using map.addLayer(
 
 
 ```JavaScript
-       map.addLayer({
+
+       ownerMap.addLayer({
          id: 'Owner Data',
          type: "fill",
          source: {
@@ -183,7 +198,7 @@ In your Mapbox account, navigate to your **Owner-Renter-Pops** tileset menu.
 
 #### Tileset Menu 
 
-For each tilset, you can either click on the name o fthe tilset to go to its informatin page or click the button <img src="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Population-Tutorial/Images/Screen%20Shot%202019-10-25%20at%202.20.03%20PM.png"> for more options: 
+For each tilset, you can either click on the name of the tilset to go to its information page or click the button <img src="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Population-Tutorial/Images/Screen%20Shot%202019-10-25%20at%202.20.03%20PM.png"> for more options: 
 
 **Replace**
 Replace the current data in your tileset with new data. The tileset ID will stay the same and the new data will be reflected in all styles that reference this tileset.
@@ -230,5 +245,33 @@ Replace '#cb1515' with the following:
  
 This code is very similar to the process we used in Studio. We are filtering the data from our layer by the data range found in the 'Own' field. Each of the five steps is assigned a color and the fill-opacity is set to 0.7. 
 
+Hit run to see your changes 
 
+<p align='center'>
+  <img src="">
+  </p>
+  
+
+### Adding a second layer 
+
+Currently, we have only have information for homeowners displayed on our map. In order to make a meaningful comparison, we will need to add information about renters to our map as well. 
+
+First, add a new va
+
+```JavaScript
+       renterMap.addLayer({
+         id: 'Owner Data',
+         type: "fill",
+         source: {
+           type: 'vector',
+           url: 'mapbox://YOUR URL' //input your tileset url
+         },
+           'source-layer': 'YOUR SOURCE LAYER NAME, //input your source layer name
+         paint: {
+           'fill-color': '#cb1515',
+         }
+
+       });
+
+```
 
