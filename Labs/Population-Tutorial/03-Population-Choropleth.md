@@ -27,6 +27,7 @@ Here’s what you’ll need to get started:
 
 - [Github account](https://github.com/join)
 - [JSFiddle Text Editor](https://jsfiddle.net/)
+- [Mapbox Style Specification](https://docs.mapbox.com/mapbox-gl-js/style-spec/)
 
 *This is a very beginner intro by a non-developer - there’s a lot more to learn about developing more complex web apps and sites, but we’re focusing just on a simple web map. For more complex projects and teams, you’ll want to learn more about version control and using Github properly, with pull requests etc.*
 
@@ -108,7 +109,7 @@ body * {
 mapboxgl.accessToken = 'YOUR ACCESS TOKEN';
 var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/dark-v10', //Mapbox dark style 
+    style: 'mapbox://styles/mapbox/dark-v10', // Mapbox dark style 
     center: [0, 0], // change the long/lat coordinates to -122.67745971679688, 45.52751668442124],
     zoom: 0 // change the zoom level to 10 
 });
@@ -121,6 +122,8 @@ var map = new mapboxgl.Map({
 
 
 Edit the code to add your Mapbox [access token](https://www.mapbox.com/help/define-access-token/)in the section that says "ACCESS TOKEN GOES HERE" (get your access token from your Mapbox [‘Account’ page](https://account.mapbox.com/)).
+
+Notice that the Mapbox style has already been initialized for you. In this exercise we are using the Mapbox dark style.  
 
 ----------
 
@@ -147,7 +150,7 @@ Fortunately, the map object can tell your browser about certain events that occu
 
 To make sure the rest of the code can execute, it needs to live in a callback function that is executed when the map is finished loading.
 
-```
+```JavaScript 
 map.on('load', function() {
   // the rest of the code will go in here
 });
@@ -157,7 +160,7 @@ map.on('load', function() {
 Next, we will add our owner and renter data layer to the map using map.addLayer(). Remember that this goes inside of the load function. 
 
 
-```
+```JavaScript
        map.addLayer({
          id: 'Owner Data',
          type: "fill",
@@ -174,7 +177,29 @@ Next, we will add our owner and renter data layer to the map using map.addLayer(
 
 ```
 
-Beofore you hit 'run', you will need to make some changes to this code. Hit **run** to see your changes! You should see your vector layer on your map. 
+Before you hit 'run', you will need to make some changes to this code. 
+
+In your Mapbox account, navigate to your **Owner-Renter-Pops** tileset menu. 
+
+#### Tileset Menu 
+
+For each tilset, you can either click on the name o fthe tilset to go to its informatin page or click the button <img src="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Population-Tutorial/Images/Screen%20Shot%202019-10-25%20at%202.20.03%20PM.png"> for more options: 
+
+**Replace**
+Replace the current data in your tileset with new data. The tileset ID will stay the same and the new data will be reflected in all styles that reference this tileset.
+
+**Delete**
+You can permanently delete a tileset from your account at any time. Deleted tilesets may not be recovered.
+
+**Tileset ID**
+From this menu, you can also copy the [tileset ID](https://docs.mapbox.com/help/glossary/tileset-id/) to be used with Mapbox SDKs and APIs.
+
+
+Copy your tileset ID and add it to your code (be sure to keep the mapbox:// in your url):  
+
+```JavaScript url: 'mapbox://YOUR URL' //input your tileset url```
+
+Hit **run** to see your changes! You should see your vector layer on your map. 
 
 
 <p align='center'>
