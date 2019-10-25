@@ -197,13 +197,13 @@ From this menu, you can also copy the [tileset ID](https://docs.mapbox.com/help/
 
 Copy your tileset ID and add it to your code (be sure to keep the mapbox:// in your url):  
 
-```JavaScript url: 'mapbox://YOUR URL' //input your tileset url```
+```url: 'mapbox://YOUR URL' //input your tileset url```
 
 Hit **run** to see your changes! You should see your vector layer on your map. 
 
 
 <p align='center'>
-  <img src="">
+  <img src="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Population-Tutorial/Images/Screen%20Shot%202019-10-25%20at%202.25.13%20PM.png">
   </p>
   
 ### Data driven styling 
@@ -212,9 +212,8 @@ You can assign a color to each block group based on its field and variables. For
 
 Replace '#cb1515' with the following: 
 
-```
-[
-   "step",
+```JavaScript
+   ["step",
    ["get", "Own"],
    "hsl(225, 100%, 97%)",
    16.81,
@@ -224,8 +223,7 @@ Replace '#cb1515' with the following:
    27.32,
    "#3182bd",
    31.942,
-    "hsl(210, 90%, 32%)"
-   ],
+    "hsl(210, 90%, 32%)"],
    "fill-opacity": 0.7
                 
  ```
