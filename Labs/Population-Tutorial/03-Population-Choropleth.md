@@ -9,15 +9,13 @@ The US Census makes owner/renter information readily available for census block 
 1) Mapping the per-person level information, and 
 2) Viewing the relative incidence of owners to renters using a choropeth map. 
 
-For this first exercise, we will be creating two choropleth maps in order to display and compare the percentage of owners and renters in Portland, Oregon. 
+For this first exercise, we will be creating two choropleth maps that display 1) the percentage of owners, and 2) the percentage of renters in Portland, Oregon. 
 
 ### In this tutorial you will:
 
-- [Manage and edit layers](https://www.mapbox.com/studio-manual/reference/styles/#style-editor) in your style
-- [Add data](https://www.mapbox.com/help/uploads/) to a style
-- Use [dynamic styling rules](https://blog.mapbox.com/studio-expressions-design-81012e2dab55) (e.g. based on zoom level, based on field in the data etc.)
-- Learn about GL-JS and adding interactivity
+- [Add data](https://www.mapbox.com/help/uploads/) to Mapbox
 - Call on map layers using GL-JS
+- Learn about GL-JS and adding interactivity, styling your layers 
 - Learn additional tools and tricks such as how to [swipe between maps](https://docs.mapbox.com/mapbox-gl-js/example/mapbox-gl-compare/)
 
 ----------
@@ -41,11 +39,11 @@ Here’s what you’ll need to get started:
 
 ----------
 
-### Uploading data to Studio
+### Upload data as a tileset to Mapbox
 
-To add the percentage of renters vs owners data to a style in Mapbox Studio, you need to upload it to your account. Go to your [**Tilesets**](https://www.mapbox.com/studio/tilesets) [page](https://www.mapbox.com/studio/tilesets) in Mapbox Studio to upload your data.
+To add the percentage of renters vs owners data to Mapbox as a tileset, you need to upload it to your account. Go to your [**Tilesets**](https://studio.mapbox.com/tilesets/) page in Mapbox Studio to upload your data.
 
-On your Tilesets page, click the **New tileset** button. Select the zipped shapefile data containing your overdose data and upload it to your account. 
+On your Tilesets page, click the **New tileset** button. Select the geojson data containing your renters and owners data and upload it to your account. 
 
 <p align="center">
   <img src="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Opioid-Tutorial/Images/tilesets.png">
@@ -63,7 +61,7 @@ In the last few tutorials we used Studio to dynamically style all of our layers.
 
 To begin, we will be using a sample code created by the documentation team at Mapbox to initialize a simple web map in JSFiddle. 
 
-```
+```HTML
 <!DOCTYPE html>
 <html>
 <head>
