@@ -103,7 +103,9 @@ body * {
 <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.1.0/mapbox-gl-compare.js'></script>
 <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.1.0/mapbox-gl-compare.css' type='text/css' />
 
-<div id='owners' class='map'></div>  //owners map div, you will need to add a second map div for your renter data
+<div id='owners' class='map'></div>  //owners map div
+<div id='renters' class='map'></div> //renters map div
+
 
 <script>
   //add your Mapbox access token and map variable here!
@@ -121,7 +123,7 @@ Notice that there are script and link tags referencing mapbox-gl-compare. This i
 <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.1.0/mapbox-gl-compare.css'`` 
 
       
-Next, add your Mapbox access token and create a variable between your script tags in order to initialize your first choropleth. This first map will display information about the percentage of homeowners in Portland. 
+Next, between your script tags add your Mapbox access token and initialize your owner choropleth by creating a ownerMap variable. This first map will display information about the percentage of homeowners in Portland. 
 
 ```javascript 
 mapboxgl.accessToken = 'YOUR ACCESS TOKEN';
@@ -138,6 +140,7 @@ Edit the code to add your Mapbox [access token](https://www.mapbox.com/help/defi
 
 The Mapbox style has already been initialized for you. In this exercise we are using the Mapbox dark style.  
 
+
 ----------
 
 ### Changing the map location and zoom level 
@@ -153,6 +156,37 @@ Now that we’ve initialized the webmap, let’s try to make some changes to our
 
 ----------
 
+### Add a second map variable 
+
+Below your ownerMap variable, initialize your renter map by creating a new variable called renterMap. This second map will display information about the percentage of renters in Portland. 
+
+```javascript 
+  
+var renterMap = new mapboxgl.Map({
+    container: 'renters', // owners map div 
+    style: 'mapbox://styles/mapbox/dark-v10', // Mapbox dark style 
+    center: [0, 0], // change the long/lat coordinates to -122.67745971679688, 45.52751668442124],
+    zoom: 0 // change the zoom level to 10 
+});
+```
+
+----------
+
+### Comparing maps
+
+Next, we need to enables users to compare our two maps by swiping left and right. Do this add the following code after your two map variables. Check out [this GitHub repo](https://github.com/mapbox/mapbox-gl-compare) for more information about the mapbox-gl-compare plugin.
+
+```JavaScript 
+
+var map = new mapboxgl.Compare(ownerMap, renterMap, {
+});
+
+```
+
+Hit run to see your changes. 
+
+
+
 ### The load event
 
 What is a callback?
@@ -161,17 +195,19 @@ Initializing the map on the page does more than create a container in the map di
 
 Fortunately, the map object can tell your browser about certain events that occur when the map's state changes. One of these events is load, which is emitted when the style has been loaded onto the map. Through the map.on method, you can make sure that none of the rest of your code is executed until that event occurs by placing it in a callback function that is called when the load event occurs.
 
-To make sure the rest of the code can execute, it needs to live in a callback function that is executed when the map is finished loading.
+To make sure the rest of the code can execute, it needs to live in a callback function that is executed when the map is finished loading. 
+
+For this exercise you will have two load events, one for your owner map and one for your renter map. 
 
 ```JavaScript 
 
-map.on('load', function() {
-  // the rest of the code will go in here
+ownerMap.on('load', function() {
+  // the rest of the owner data code will go in here
 });
 
 ```
 
-Next, we will add our owner and renter data layer to the map using map.addLayer(). Remember that this goes inside of the load function. 
+Next, we will add our owner and renter data layer to the map using ownerMap.addLayer(). Remember that this goes inside of the load function. 
 
 
 ```JavaScript
@@ -183,7 +219,7 @@ Next, we will add our owner and renter data layer to the map using map.addLayer(
            type: 'vector',
            url: 'mapbox://YOUR URL' //input your tileset url
          },
-           'source-layer': 'YOUR SOURCE LAYER NAME, //input your source layer name
+           'source-layer': 'YOUR SOURCE LAYER NAME, //input your source layer name e.g. Owner-Renter-Pop-dr7310
          paint: {
            'fill-color': '#cb1515',
          }
@@ -214,6 +250,8 @@ Copy your tileset ID and add it to your code (be sure to keep the mapbox:// in y
 
 ```url: 'mapbox://YOUR URL' //input your tileset url```
 
+Next, copy and paste the name of your [source layer](https://docs.mapbox.com/help/glossary/source-layer/) into the code. 
+
 Hit **run** to see your changes! You should see your vector layer on your map. 
 
 
@@ -223,7 +261,7 @@ Hit **run** to see your changes! You should see your vector layer on your map.
   
 ### Data driven styling 
 
-You can assign a color to each block group based on its field and variables. For our first map, we want to create a choropleth map that displays the percentage of the Portland population that owns a home. In order to style by homeownership, you will need to change the 'fill-color' parameter of the layer you just added to your map. 
+You can assign a color to each block group based on its field and variables. For our first map, we want to create a choropleth map that displays the percentage of the Portland population that owns a home. In order to style by homeownership, you will need to style our data by our 'Own' field and to change the 'fill-color' parameter of the layer you just added to your map. 
 
 Replace '#cb1515' with the following: 
 
@@ -254,9 +292,19 @@ Hit run to see your changes
 
 ### Adding a second layer 
 
-Currently, we have only have information for homeowners displayed on our map. In order to make a meaningful comparison, we will need to add information about renters to our map as well. 
+Currently, we have only have information for homeowners displayed on our map. In order to make a meaningful comparison, we will need to add information about renters. 
 
-First, add a new va
+First, add a second load event called renterMap (the renter variable will go inside of this function):
+
+```JavaScript 
+
+renterMap.on('load', function() {
+  // the rest of the renter data code will go in here
+});
+
+```
+
+Next, add your renter data as a layer using .addLayer. 
 
 ```JavaScript
        renterMap.addLayer({
@@ -266,7 +314,7 @@ First, add a new va
            type: 'vector',
            url: 'mapbox://YOUR URL' //input your tileset url
          },
-           'source-layer': 'YOUR SOURCE LAYER NAME, //input your source layer name
+           'source-layer': 'YOUR SOURCE LAYER NAME, //input your source layer name e.g. Owner-Renter-Pop-dr7310
          paint: {
            'fill-color': '#cb1515',
          }
@@ -275,3 +323,35 @@ First, add a new va
 
 ```
 
+Copy your tileset ID and add it to your code (be sure to keep the mapbox:// in your url):  
+
+```url: 'mapbox://YOUR URL' //input your tileset url```
+
+Next, copy and paste the name of your [source layer](https://docs.mapbox.com/help/glossary/source-layer/) into the code. Your tileset ID and the source-layer name will be the same for both layers. 
+
+Hit **run** to see your changes! You should see your vector layer on your map. 
+
+
+### Styling your second layer 
+
+For the renter map, we want to create a choropleth map that displays the percentage of the Portland population that rents. In order to style by percentage of renters, you will need to style our data by the 'Rent' field. You will also need to change the 'fill-color' parameter of the layer you just added to your map. 
+
+Replace '#cb1515' with the following: 
+
+```JavaScript
+   ["step",
+   ["get", "Own"],
+   "hsl(225, 100%, 97%)",
+   16.81,
+   "hsl(203, 47%, 82%)",
+   22.338,
+   "hsl(202, 57%, 63%)",
+   27.32,
+   "#3182bd",
+   31.942,
+    "hsl(210, 90%, 32%)"],
+   "fill-opacity": 0.7
+                
+ ```
+ 
+ Hit **run** to see your changes!
