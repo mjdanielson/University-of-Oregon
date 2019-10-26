@@ -118,14 +118,15 @@ body * {
 Notice that there are script and link tags referencing mapbox-gl-compare. This is the Mapbox GL JS [swipe map plugin](https://github.com/mapbox/mapbox-gl-compare).
 
 ```HTML
-
 <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.1.0/mapbox-gl-compare.js'></script>
-<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.1.0/mapbox-gl-compare.css'`` 
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-compare/v0.1.0/mapbox-gl-compare.css'
+```
 
       
 Next, between your script tags add your Mapbox access token and initialize your owner choropleth by creating a ownerMap variable. This first map will display information about the percentage of homeowners in Portland. 
 
 ```javascript 
+
 mapboxgl.accessToken = 'YOUR ACCESS TOKEN';
   
 var ownerMap = new mapboxgl.Map({
@@ -133,8 +134,8 @@ var ownerMap = new mapboxgl.Map({
     style: 'mapbox://styles/mapbox/dark-v10', // Mapbox dark style 
     center: [0, 0], // change the long/lat coordinates to -122.67745971679688, 45.52751668442124],
     zoom: 0 // change the zoom level to 10 
-});
-```
+});```
+
 
 Edit the code to add your Mapbox [access token](https://www.mapbox.com/help/define-access-token/)in the section that says "ACCESS TOKEN GOES HERE" (get your access token from your Mapbox [‘Account’ page](https://account.mapbox.com/)).
 
