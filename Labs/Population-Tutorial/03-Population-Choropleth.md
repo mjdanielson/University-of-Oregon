@@ -393,6 +393,8 @@ Replace '#cb1515' with the following:
 	</p>
 
 
+[Link](https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Population-Tutorial/Population-Choropleth.html) to completed project.
+
 ### Extra Steps 
 
 Try adding a legend and a title to your map to make it easier for readers to understand the comparison between owners and renters in Portland. 
