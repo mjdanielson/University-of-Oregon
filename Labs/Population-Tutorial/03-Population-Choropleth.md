@@ -11,9 +11,9 @@ The US Census makes owner/renter information readily available for census block 
 
 For this first exercise, we will be creating two choropleth maps that display 1) the percentage of owners, and 2) the percentage of renters in Portland, Oregon. 
 
- <p align='center'>
-  <img src=" https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Population-Tutorial/Images/slide.gif">
-  </p>
+<p align="center">
+<img src="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Population-Tutorial/Images/slide.gif">
+</p>
   
 
 ### In this tutorial you will:
@@ -381,9 +381,9 @@ Replace '#cb1515' with the following:
  
  Hit **run** to see your changes!
  
- <p align='center'>
-  <img src=" https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Population-Tutorial/Images/slide.gif">
-  </p>
+<p align="center">
+<img src="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Population-Tutorial/Images/slide.gif">
+</p>
   
  
 ### Congratulations! You've completed the exercise! 
