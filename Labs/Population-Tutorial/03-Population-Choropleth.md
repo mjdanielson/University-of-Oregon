@@ -123,7 +123,7 @@ Notice that there are script and link tags referencing mapbox-gl-compare. This i
 ```
 
       
-Next, between your script tags add your Mapbox access token and initialize your owner choropleth by creating a ownerMap variable. This first map will display information about the percentage of homeowners in Portland. 
+Next, between your script tags (where it says 'add your Mapbox access toke and map variable here') add your Mapbox access token and initialize your owner choropleth by creating a ownerMap variable. This first map will display information about the percentage of homeowners in Portland. 
 
 ```JavaScript
 
@@ -137,10 +137,16 @@ var ownerMap = new mapboxgl.Map({
 });
 ```
 
+<p align="center">
+  <img src="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Population-Tutorial/Images/full-mapp.png">
+  </p>
+
+
 
 Edit the code to add your Mapbox [access token](https://www.mapbox.com/help/define-access-token/)in the section that says "ACCESS TOKEN GOES HERE" (get your access token from your Mapbox [‘Account’ page](https://account.mapbox.com/)).
 
 The Mapbox style has already been initialized for you. In this exercise we are using the Mapbox dark style.  
+
 
 
 ----------
@@ -156,6 +162,12 @@ Now that we’ve initialized the webmap, let’s try to make some changes to our
 5. Click ‘Run’ to see the changes to your map. 
 
 
+<p align="center">
+  <img src="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Population-Tutorial/Images/Portland.png">
+  </p>
+
+
+
 ----------
 
 ### Add a second map variable 
@@ -167,8 +179,8 @@ Below your ownerMap variable, initialize your renter map by creating a new varia
 var renterMap = new mapboxgl.Map({
     container: 'renters', // owners map div 
     style: 'mapbox://styles/mapbox/dark-v10', // Mapbox dark style 
-    center: [0, 0], // change the long/lat coordinates to -122.67745971679688, 45.52751668442124],
-    zoom: 0 // change the zoom level to 10 
+    center: [-122.67745971679688, 45.52751668442124], 
+    zoom: 10 
 });
 ```
 
@@ -186,6 +198,12 @@ var map = new mapboxgl.Compare(ownerMap, renterMap, {
 ```
 
 Hit run to see your changes. 
+
+
+
+<p align="center">
+  <img src="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Population-Tutorial/Images/compare1.png">
+  </p>
 
 
 
@@ -221,7 +239,7 @@ Next, we will add our owner and renter data layer to the map using ownerMap.addL
            type: 'vector',
            url: 'mapbox://YOUR URL' //input your tileset url
          },
-           'source-layer': 'YOUR SOURCE LAYER NAME, //input your source layer name e.g. Owner-Renter-Pop-dr7310
+           'source-layer': 'YOUR SOURCE LAYER NAME', //input your source layer name e.g. Owner-Renter-Pop-dr7310
          paint: {
            'fill-color': '#cb1515',
          }
