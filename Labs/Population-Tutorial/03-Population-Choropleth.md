@@ -11,6 +11,11 @@ The US Census makes owner/renter information readily available for census block 
 
 For this first exercise, we will be creating two choropleth maps that display 1) the percentage of owners, and 2) the percentage of renters in Portland, Oregon. 
 
+ <p align='center'>
+  <img src=" https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Population-Tutorial/Images/slide.gif">
+  </p>
+  
+
 ### In this tutorial you will:
 
 - [Add data](https://www.mapbox.com/help/uploads/) to Mapbox
@@ -306,7 +311,7 @@ This code is very similar to the process we used in Studio. We are filtering the
 Hit run to see your changes 
 
 <p align='center'>
-  <img src="">
+  <img src="https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Population-Tutorial/Images/owner_slide.png">
   </p>
   
 
@@ -328,13 +333,13 @@ Next, add your renter data as a layer using .addLayer.
 
 ```JavaScript
        renterMap.addLayer({
-         id: 'Owner Data',
+         id: 'Renter Data',
          type: "fill",
          source: {
            type: 'vector',
            url: 'mapbox://YOUR URL' //input your tileset url
          },
-           'source-layer': 'YOUR SOURCE LAYER NAME, //input your source layer name e.g. Owner-Renter-Pop-dr7310
+           'source-layer': 'YOUR SOURCE LAYER NAME', //input your source layer name e.g. Owner-Renter-Pop-dr7310
          paint: {
            'fill-color': '#cb1515',
          }
@@ -360,7 +365,7 @@ Replace '#cb1515' with the following:
 
 ```JavaScript
    ["step",
-   ["get", "Own"],
+   ["get", "Rent"],
    "hsl(225, 100%, 97%)",
    16.81,
    "hsl(203, 47%, 82%)",
@@ -375,3 +380,21 @@ Replace '#cb1515' with the following:
  ```
  
  Hit **run** to see your changes!
+ 
+ <p align='center'>
+  <img src=" https://github.com/mjdanielson/University-of-Oregon/blob/master/Labs/Population-Tutorial/Images/slide.gif">
+  </p>
+  
+ 
+### Congratulations! You've completed the exercise! 
+
+<p align = "center">
+	<img src="https://media.giphy.com/media/11uArCoB4fkRcQ/giphy.gif">
+	</p>
+
+
+### Extra Steps 
+
+Try adding a legend and a title to your map to make it easier for readers to understand the comparison between owners and renters in Portland. 
+
+
