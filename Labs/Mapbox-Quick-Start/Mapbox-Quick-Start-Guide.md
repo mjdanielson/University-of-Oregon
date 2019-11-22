@@ -17,7 +17,7 @@ Before writing any code for the map, you need to do the following preparation st
     
 ```
 
-* Include Mapbox CSS file __after__ Mapbox’s JavaScript:
+* Include Mapbox CSS file:
 
 ```html
 <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.0/mapbox-gl.css' rel='stylesheet' />
@@ -95,7 +95,7 @@ When you have finished experimenting, make sure your code is set to Portland and
 
 Besides a basemap, you can easily add other things to your map, including markers and popups.
 
-Let’s adda marker to the same longitude/latitude that we centered our map on:
+Let’s add a marker to the same longitude/latitude that we centered our map on:
 
 ```javascript
 var marker = new mapboxgl.Marker()
@@ -109,7 +109,7 @@ var marker = new mapboxgl.Marker()
 
 Take a look at the [API](https://docs.mapbox.com/mapbox-gl-js/api/#marker) to see what marker options are available.
 
-Let's change the color of our marker! The default color for the marker is blue. Add a color parameter to your code and change the color! You can use the name of most common colors (`'red'`, `'blue'`, `'green'`) or enter a HEX colod code (`'#42f569'`) or rgb color (`'rgb(0,255,0)'`). We'll cover colors in more detail soon. Try a few different colors.
+Let's change the color of our marker! The default color for the marker is blue. Add a color parameter to your code and change the color! You can use the name of most common colors (`'red'`, `'blue'`, `'green'`) or enter a HEX color code (`'#42f569'`) or rgb color (`'rgb(0,255,0)'`). We'll cover colors in more detail soon. Try a few different colors.
 
 ```javascript
 var marker = new mapboxgl.Marker({color:'red'})
@@ -161,7 +161,7 @@ var popup_layer = new mapboxgl.Popup({closeOnClick: false})
 .addTo(map); //add this popup to the map!
 ```
 
-Try changing the `closeOnClick` argument to 'true' and refresh your map. What happens when you click anywhere in the map? 
+Try changing the `closeOnClick` argument to `true` and refresh your map. What happens when you click anywhere in the map? 
 
 Take a look at the [popup](https://docs.mapbox.com/mapbox-gl-js/api/#popup) documentation to learn more about the parameters associated with Mapbox popups. Try adjusting one or more parameters - for instace, try changing the anchor position. 
 
